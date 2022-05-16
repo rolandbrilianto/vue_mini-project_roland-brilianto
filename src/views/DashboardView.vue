@@ -15,7 +15,7 @@
             </blockquote>
             <figcaption class="blockquote-footer">Best Futsal, Enjoy with Best Court - <cite title="Source Title">Bekasi</cite></figcaption>
           </figure>
-          <img src="../assets/blue-court.jpg" class="img-fluid w-75" alt="..." />
+          <img src="https://res.cloudinary.com/dniuy65ic/image/upload/v1652277553/sample.jpg" class="img-fluid w-75" alt="..." />
         </main>
       </div>
     </div>

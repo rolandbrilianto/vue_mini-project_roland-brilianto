@@ -1,228 +1,140 @@
 <template>
-  <div class="home">
-    <section class="header" id="home" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(img/bg.png)">
-      <nav id="nav">
+  <div>
+    <section ref="home" class="header" id="home" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(https://res.cloudinary.com/dniuy65ic/image/upload/v1652381773/bgFutsal_wrojpi.jpg)">
+      <nav id="nav" class="navy">
         <a href="index.html"><img src="img/logo.png" /></a>
-        <div class="nav-links" id="navLinks">
-          <i class="fas fa-times" onclick="hideMenu()"></i>
+        <div class="nav-links mt-2" v-bind:style="{ right: computedRight }">
+          <i class="fas fa-times" @click="closeMenu()"></i>
           <ul>
-            <li><a href="#home" class="navbar-section">Home</a></li>
-            <li><a href="#konten" class="navbar-section">Konten</a></li>
-            <li><a href="#layanan" class="navbar-section">Layanan</a></li>
-            <li><a href="#tentangKami" class="navbar-section">Tentang Kami</a></li>
-            <li><a href="#ourlocation" class="navbar-section">Our Location</a></li>
-            <li><a href="#login" class="navbar-section">Login</a></li>
+            <li><a @click="goto('home')" class="navbar-section" style="cursor: pointer">Home</a></li>
+            <li><a @click="goto('tentang-kami')" class="navbar-section" style="cursor: pointer">Tentang Kami</a></li>
+            <li><a @click="goto('fasilitas')" class="navbar-section" style="cursor: pointer">Fasilitas Kami</a></li>
+            <li><a @click="goto('ourlocation')" style="cursor: pointer" class="navbar-section">Our Location</a></li>
+            <li><a class="navbar-section" style="cursor: pointer">Login</a></li>
           </ul>
         </div>
-        <i class="fas fa-bars" onclick="showMenu()"></i>
+        <i class="fas fa-bars" @click="showMenu()"></i>
       </nav>
 
       <div class="text-box">
         <h1>Estadio Futsal</h1>
 
-        <p>Tim EO dengan pengalaman lebih dari 22 Tahun dalam membantu anda menemukan konsep terbaik <br />untuk acara dengan layanan terbaik dan event lain yang tak terlupakan</p>
+        <p>Jln Perjuangan No 66, Bekasi Utara 17142 <br />0877 2121 0909</p>
         <a href="" class="hero-btn">Selengkapnya</a>
       </div>
       <!--
     --></section>
 
-    <!--konten-->
-    <section class="konten" id="konten">
-      <h1>Konten</h1>
-      <p>Berikut adalah produk layanan terbaik kami</p>
-
-      <div class="row1">
-        <div class="konten-col">
-          <h3>Webinar</h3>
-          <p>
-            Mengapa webinar dalam kurun waktu terakhir sangat diminati? Webinar merupakan salah satu sarana daring yang dapat menghubungkan orang, tim, dan organisai dari mana saja secara real-time. Webinar memungkinkan banyak orang untuk
-            terlibat dalam diskusi atau pelatihan daring, dengan membagikan audio, dokumen atau presentasi.
-          </p>
-        </div>
-
-        <div class="konten-col">
-          <h3>Launching Product</h3>
-          <p>Product Launching merupakan acara yang sangat penting bagi setiap bisnis baik publik maupun private. Kesuksesan acara mempengaruhi tingkat penjualan dan exposure dari produk yang akan dirilis.</p>
-        </div>
-
-        <div class="konten-col">
-          <h3>Public Expose</h3>
-          <p>
-            Public Expose adalah acara yang diselenggarakan perusahaan terbuka atau publik dalam rangka pemaparan informasi internal perusahaan seperti kinerja hingga perubahan struktur. Biasanya Public Expose dilakukan juga ketika sebuah
-            perusahaan melakukan Penawaran Umum Perdana Saham atau Go Public maupun Penawaran Umum Obligasi.
-          </p>
-        </div>
-      </div>
-
-      <div class="row2">
-        <div class="konten-col">
-          <h3>Investor Gathering</h3>
-          <p>
-            Investor Gathering adalah acara yang diselenggarakan oleh perusahaan terbuka atau publik dengan mengundang investor atau pemegang saham dan calon beserta stakeholder lainnya seperti analis dan media. Ini merupakan acara yang
-            diperuntukkan untuk mempromosikan saham atau IPO (jika baru mau go public) dan sering dikaitkan sebagai acara penting dalam kesuksesan offering saham.
-          </p>
-        </div>
-
-        <div class="konten-col">
-          <h3>RUPS</h3>
-          <p>
-            RUPS (Rapat Umum Pemegang Saham) merupakan wadah para pemegang saham untuk mengambil keputusan penting yang berkaitan dengan modal yang ditanam dalam perusahaan, dengan memperhatikan ketentuan Anggaran Dasar dan peraturan
-            perundang-undangan. Pengambilan keputusan dalam RUPS harus dilakukan secara wajar dan transparan dan didasarkan pada kepentingan usaha Perseroan dalam jangka panjang.
-          </p>
-        </div>
-        <div class="konten-col">
-          <h3>Company outing, gathering and anniversary</h3>
-          <p>
-            Selain menjadi EO jakarta untuk berbagai acara perusahaan yang formal, Kami juga dipercaya menjadi EO untuk acara outing dan gathering untuk perusahaan maupun employee. Kami ditunjuk untuk menghandle gathering untuk customer,
-            investor hingga employee (karyawan), seperti Closing Dinner Rights Issue Bank BNI (Bali), Closing Dinner Obligasi Bank BJB (Jogja). Ratusan employee gathering dan company anniversary (ulang tahun perusahaan) telah kami tangani.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!--Akhir konten-->
-
-    <!------- Layanan ------->
-    <section id="layanan" class="layanan" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(img/bg2.jpg)">
-      <h1>Layanan</h1>
-      <p>
-        Kami dikenal sebagai EO Jakarta untuk Corporate di Jakarta Seiring pertumbuhan permintaan client, pada 2004 Kami memulai jasa EO jakarta untuk perusahaan publik dan corporate. Dengan jasa EO, nama Royal Promosindo semakin dikenal
-        karena kualitas jasa yang diberikan tidak kalah dengan pemain lama. Lambat tahun, kini Royal Promosindo lebih dikenal sebagai penyedia jasa EO jakarta dibandingkan jasa periklanan yang dahulu merupakan core business kami.
-      </p>
-
-      <!-- Slideshow container -->
-      <div class="slideshow-container">
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-          <div class="numbertext">1 / 3</div>
-          <img src="img/presentation.jpeg" style="width: 100%" />
-          <div class="text">Seminar</div>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">2 / 3</div>
-          <img src="img/wedding.jpg" style="width: 100%" />
-          <div class="text">Wedding</div>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">3 / 3</div>
-          <img src="img/gathering.jpg" style="width: 100%" />
-          <div class="text">Gathering</div>
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      <br />
-
-      <!-- The dots/circles -->
-      <div style="text-align: center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-      </div>
-    </section>
-    <!------- Akhir Layanan ------->
-
     <!--Tentang Kami-->
-    <section id="tentangKami" class="tentangkami">
+    <section id="tentangKami" class="tentangkami" ref="tentang-kami">
       <div class="about-section">
         <h1>Tentang Kami</h1>
         <p>
-          Pada awalnya kami terkenal dengan Advertising company, setelah mengembangkan diri dibidang printing kami terkenal dengan sebutan printing company, dan setelah kami mengembangkan diri di bidang Event Organizer kami terkenal dengan
-          EO. Hal ini menandakan bahwa kami serius dan mempunyai komitmen dalam menjaga kualitas dan pelayanan demi kepuasan pelanggan.
+          ESTADIO FUTSAL dibangun oleh para penggila futsal yang ingin memberikan kenikmatan dan kepuasan permainan kepada para pencinta futsal di kota Bekasi dan sekitar nya. Konsep eco-friendly dan ramah lingkungan telah menjadikan
+          Estadio Futsal sebagai tempat bermain futsal yang sangat mendukung dan baik.
         </p>
         <p>
-          Sejak awal berdirinya, royal promosindo memposisikan diri pada segmen pasar perusahaan publik, segmen pasar ini merupakan wilayah yang sangat potensial dan dinamis dengan terus meningkatnya jumlah perusahaan yang go public. Hingga
-          saat ini, royal promosindo telah menangani lebih dari 100 perusahaan, dan 95% diantaranya adalah perusahaan publik..
+          Kami menyediakan 2 lapangan dengan standard international berlapiskan interlock-vinyl dan memiliki ukuran minimal standard international, akan memberikan kenikmatan dan kenyamanan permainan kepada para pencinta futsal. Selain itu
+          dengan ada nya jembatan tribun penonton di lantai-2, diharapkan akan memberikan atmosfere yang berbeda baik kepada para pemain maupun para penonton pertandingan.
         </p>
 
-        <br />
-        <h2>Kenapa kerja sama Royal Promosindo aja?</h2>
         <p>
-          Pada awalnya kami terkenal dengan Advertising company, setelah mengembangkan diri dibidang printing kami terkenal dengan sebutan printing company, dan setelah kami mengembangkan diri di bidang Event Organizer kami terkenal dengan
-          EO. Hal ini menandakan bahwa kami serius dan mempunyai komitmen dalam menjaga kualitas dan pelayanan demi kepuasan pelanggan.
-        </p>
-        <br />
-        <p>
-          • Keunggulan kami dibidang Event Organizer adalah ditandai dengan banyaknya perusahaan swasta nasional maupun Badan Usaha Milik Negara (BUMN) telah mempercayakan kegiatan Event Organizer kepada kami baik untuk acara Ulang Tahun
-          Perusahaan, Launching Product, Public Expose, Investor Gathering, RUPS, CSR, Rakernas, Seminar, Outing maupun City Tour.
+          Selain standard lapangan yang sangat baik, Fasilitas pendukung yang baik juga menjadikan Estadio Futsal sebagai sarana olahraga yang sangat nyaman. Ruang ganti dan kamar mandi yang sangat bersih menjadi komitmen yang diberikan
+          oleh pihak Estadio Futsal.
         </p>
       </div>
-
-      <h2 style="text-align: center">Sejarah Kami</h2>
-      <div class="row">
-        <div class="column">
-          <div class="card">
-            <img src="img/advertising.png" alt="Jane" style="width: 100%" />
-            <div class="container">
-              <h2>1999</h2>
-              <p class="title">Advertising</p>
-              <p>berdiri dengan meyediakan Jasa Advertising</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <img src="img/printing.jpg" alt="Mike" style="width: 100%" />
-            <div class="container">
-              <h2>2002</h2>
-              <p class="title">Printing</p>
-              <p>Mengembangkan usaha di bidang Printing</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <img src="img/event organizer.jpg" alt="John" style="width: 100%" />
-            <div class="container">
-              <h2>2004</h2>
-              <p class="title">Event Organizer</p>
-              <p>Menyediakan Jasa Event Organizer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Akhir Tentang Kami-->
-
-    <!-- Our Location-->
-    <section id="ourlocation" class="ourlocation" style="background-color: #93caed">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
-          fill="#acd1af"
+          fill="#93caed"
           fill-opacity="1"
           d="M0,224L40,234.7C80,245,160,267,240,261.3C320,256,400,224,480,202.7C560,181,640,171,720,181.3C800,192,880,224,960,250.7C1040,277,1120,299,1200,309.3C1280,320,1360,320,1400,320L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
         ></path>
       </svg>
-      <h1 style="text-align: center">Our Location</h1>
+    </section>
+    <section ref="fasilitas">
+      <h1>Fasilitas Kami</h1>
+      <ApolloQuery
+        :query="
+          (gql) => gql`
+            query MyQuery {
+              fasilitas {
+                judul
+                judul_second
+                deskripsi
+                foto
+              }
+            }
+          `
+        "
+      >
+        <template v-slot="{ result: { loading, error, data } }">
+          <!-- Loading -->
+          <div v-if="loading" class="loading apollo">Loading...</div>
 
-      <div class="rowMap">
-        <div class="kolom">
-          <div class="mapouter">
-            <div class="gmap_canvas">
-              <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Politeknik%20Negeri%20Jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe
-              ><a href="https://www.fridaynightfunkin.net/friday-night-funkin-mods-fnf-play-online/">FNF Mods</a>
+          <!-- Error -->
+          <div v-else-if="error" class="error apollo">An error occurred</div>
+
+          <!-- Result -->
+          <div v-else-if="data" class="result apollo">
+            <div class="row">
+              <div class="column" v-for="Fasilitas in data.fasilitas" :key="Fasilitas.id">
+                <div class="card">
+                  <img :src="Fasilitas.foto" alt="Mike" style="width: 100%" />
+                  <div class="container">
+                    <h2>{{ Fasilitas.judul }}</h2>
+                    <p class="title">{{ Fasilitas.judul_second }}</p>
+                    <p>{{ Fasilitas.deskripsi }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="kolom">
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/4eJ8sJGh5dA"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
+          <!-- No result -->
+          <div v-else class="no-result apollo">No result :(</div>
+        </template>
+      </ApolloQuery>
     </section>
+
+    <!--Akhir Tentang Kami-->
+
+    <!-- Our Location-->
+    <div ref="ourlocation">
+      <section id="ourlocation" class="ourlocation" style="background-color: #93caed">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#ffffff"
+            fill-opacity="1"
+            d="M0,224L40,234.7C80,245,160,267,240,261.3C320,256,400,224,480,202.7C560,181,640,171,720,181.3C800,192,880,224,960,250.7C1040,277,1120,299,1200,309.3C1280,320,1360,320,1400,320L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+          ></path>
+        </svg>
+        <h1 style="text-align: center">Our Location</h1>
+
+        <div class="rowMap">
+          <div class="kolom">
+            <div class="mapouter">
+              <div class="gmap_canvas">
+                <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=estadio%20futsal&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe
+                ><a href="https://www.fridaynightfunkin.net/friday-night-funkin-mods-fnf-play-online/">FNF Mods</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="kolom">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/rmJMKYE9RwI"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <!--Akhir Our Location-->
 
     <div class="footer" id="login">
@@ -250,7 +162,7 @@
         </div>
       </div>
 
-      <div class="footer-bottom">&copy; royalpromosindo.co.id | Designed by Andhika Cahyadi</div>
+      <div class="footer-bottom">&copy; royalpromosindo.co.id | Designed by Roland Brilianto</div>
     </div>
   </div>
 </template>
@@ -260,6 +172,29 @@
 
 export default {
   name: "IndexView",
+  data() {
+    return {
+      right: "-200px",
+    };
+  },
+  computed: {
+    computedRight: function () {
+      return this.right;
+    },
+  },
+  methods: {
+    goto(refName) {
+      var element = this.$refs[refName];
+      var top = element.offsetTop;
+      window.scrollTo(0, top);
+    },
+    showMenu() {
+      this.right = 0;
+    },
+    closeMenu() {
+      this.right = "-200px";
+    },
+  },
 };
 </script>
 <style>
@@ -379,86 +314,9 @@ nav .fas {
   color: #0e1111;
 }
 
-/*Konten*/
-.konten {
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  padding-top: 75px;
-  background: #fbfaf5;
-  transition: 2s;
-}
-
-.row1 {
-  margin-top: 5%;
-  display: flex;
-  justify-content: space-between;
-}
-.row2 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.konten-col {
-  flex-basis: 31%;
-  background: #93caed;
-  border-radius: 10px;
-  margin-bottom: 5%;
-  padding: 20px 12px;
-  box-sizing: border-box;
-  margin-left: 20px;
-  margin-right: 20px;
-  transition: 0.5s;
-}
-h1 {
-  font-size: 50px;
-  font-weight: 600;
-}
-h3 {
-  text-align: center;
-  margin: 10px 0;
-  font-size: 30px;
-  font-weight: 600;
-}
-.konten-col:hover {
-  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 2);
-}
-.konten p {
-  font-size: 24px;
-}
-.konten-col p {
-  color: #0e1111;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 22px;
-  padding: 10px;
-}
-
-/* Layanan */
-.layanan {
-  padding-top: 75px;
-  height: 100vh;
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  text-align: center;
-}
-.layanan h1 {
-  color: #fbfaf5;
-}
-.layanan p {
-  margin-top: 5%;
-  color: #fbfaf5;
-  margin: 40px;
-  font-size: 23px;
-  font-weight: 500;
-}
 /* Tentang Kami */
 
 .tentangkami {
-  padding-top: 270px;
-  background-color: #acd1af;
   width: 100%;
 }
 
@@ -501,7 +359,7 @@ h2 {
 .about-section {
   padding: 50px;
   text-align: center;
-  background-color: #ffbe61;
+  background-color: #93caed;
   color: #0e1111;
 }
 .about-section p {
