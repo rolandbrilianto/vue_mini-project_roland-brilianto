@@ -134,7 +134,154 @@
         </div>
       </section>
     </div>
+    <section>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#93caed"
+          fill-opacity="1"
+          d="M0,224L40,234.7C80,245,160,267,240,261.3C320,256,400,224,480,202.7C560,181,640,171,720,181.3C800,192,880,224,960,250.7C1040,277,1120,299,1200,309.3C1280,320,1360,320,1400,320L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+        ></path>
+      </svg>
+      <div>
+        <h1>Booking</h1>
+        <ApolloQuery
+          :query="
+            (gql) => gql`
+              query MyQuery2 {
+                booking {
+                  id
+                  Name
+                  Telephone
+                  Lapangan
+                  Tanggal
+                  Waktu
+                  Keterangan
+                }
+              }
+            `
+          "
+        >
+          <template v-slot="{ result: { loading, error, data } }">
+            <!-- Loading -->
+            <div v-if="loading" class="loading apollo">Loading...</div>
 
+            <!-- Error -->
+            <div v-else-if="error" class="error apollo">An error occurred{{ error }}</div>
+
+            <!-- Result -->
+            <div v-else-if="data" class="result apollo">
+              <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Nama</th>
+                      <th scope="col">No Telp</th>
+                      <th scope="col">Lapangan</th>
+                      <th scope="col">Tanggal</th>
+                      <th scope="col">Pukul</th>
+                      <th scope="col">Keterangan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="Booking in data.booking" :key="Booking.id">
+                      <td>{{ Booking.id }}</td>
+                      <td>{{ Booking.Name }}</td>
+                      <td>{{ Booking.Telephone }}</td>
+                      <td>{{ Booking.Lapangan }}</td>
+                      <td>{{ Booking.Tanggal }}</td>
+                      <td>{{ Booking.Waktu }}</td>
+                      <td>{{ Booking.Keterangan }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                      <div class="card bg-primary shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header"><h3 class="text-center text-light font-weight-light my-4">Booking</h3></div>
+                        <div class="card-body">
+                          <form>
+                            <div class="form-floating mb-3">
+                              <input class="form-control" v-model="name" id="inputName" type="text" placeholder="Roland Brilianto" required />
+                              <label for="inputName">Nama</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <input class="form-control" v-model="telNo" id="inputTelp" type="text" placeholder="Telepon" required />
+                              <label for="inputTelp">Telepon</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <input class="form-control" v-model="tanggal" id="date" type="date" placeholder="Tanggal" required />
+                              <label for="inputDate">Tanggal</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <select class="form-select" v-model="lapangan" aria-label="Default select example" required>
+                                <option value="Lapangan 1">Lapangan 1</option>
+                                <option value="Lapangan 2">Lapangan 2</option>
+                              </select>
+
+                              <label for="inputDate">Lapangan</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <select class="form-select" v-model="waktu" aria-label="Default select example" required>
+                                <option value="16.00 - 17.00">16.00 - 17.00</option>
+                                <option value="17.00 - 18.00">17.00 - 18.00</option>
+                                <option value="18.00 - 19.00">18.00 - 19.00</option>
+                                <option value="19.00 - 20.00">19.00 - 20.00</option>
+                                <option value="20.00 - 21.00">20.00 - 21.00</option>
+                                <option value="21.00 - 22.00">21.00 - 22.00</option>
+                                <option value="22.00 - 23.00">22.00 - 23.00</option>
+                                <option value="23.00 - 24.00">23.00 - 24.00</option>
+                              </select>
+
+                              <label for="inputDate">Pukul</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <select class="form-select" v-model="keterangan" aria-label="Default select example" required>
+                                <option value="Langsung Bayar">Langsung Bayar</option>
+                                <option value="Bayar Nanti">Bayar Nanti</option>
+                              </select>
+
+                              <label for="inputDate">Bayar</label>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                              <a class="btn btn-success" @click="book(data.booking)">Book Now</a>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- No result -->
+            <div v-else class="no-result apollo">No result :(</div>
+          </template>
+          <ApolloSubscribeToMore
+            :document="
+              (gql) => gql`
+                subscription MySubscription {
+                  booking {
+                    id
+                    Name
+                    Tanggal
+                    Lapangan
+                    Telephone
+                    Waktu
+                    Keterangan
+                  }
+                }
+              `
+            "
+            :updateQuery="updated"
+          />
+        </ApolloQuery>
+      </div>
+    </section>
     <!--Akhir Our Location-->
 
     <div class="footer" id="login">
@@ -169,12 +316,18 @@
 
 <script>
 // @ is an alias to /src
-
+import gql from "graphql-tag";
 export default {
   name: "IndexView",
   data() {
     return {
       right: "-200px",
+      name: "",
+      telNo: "",
+      tanggal: null,
+      keterangan: null,
+      waktu: null,
+      lapangan: null,
     };
   },
   computed: {
@@ -183,6 +336,11 @@ export default {
     },
   },
   methods: {
+    updated(previousResult, { subscriptionData }) {
+      return {
+        booking: subscriptionData.data.booking,
+      };
+    },
     goto(refName) {
       var element = this.$refs[refName];
       var top = element.offsetTop;
@@ -193,6 +351,48 @@ export default {
     },
     closeMenu() {
       this.right = "-200px";
+    },
+    book(booking) {
+      if (this.name == "" || this.telNo == "" || this.tanggal == "" || this.waktu == "" || this.lapangan == "" || this.keterangan == "") {
+        alert("isi data lengkap");
+      } else {
+        let i;
+        let flag = 0;
+        for (i = 0; i < booking.length; i++) {
+          if (this.tanggal == booking[i].Tanggal && this.waktu == booking[i].Waktu && this.lapangan == booking[i].Lapangan) {
+            flag = flag + 1;
+          }
+        }
+        if (flag > 0) {
+          alert("Booking GAGAL! silahkan booking di jadwal yang belom ter booking, silahkan liat tabel");
+        } else {
+          console.log("data masuk");
+          this.$apollo.mutate({
+            mutation: gql`
+              mutation MyMutation($Keterangan: String!, $Lapangan: String!, $Name: String!, $Tanggal: date!, $Telephone: String!, $Waktu: String!) {
+                insert_booking_one(object: { Name: $Name, Telephone: $Telephone, Tanggal: $Tanggal, Lapangan: $Lapangan, Waktu: $Waktu, Keterangan: $Keterangan }) {
+                  Name
+                  Telephone
+                  Tanggal
+                  Lapangan
+                  Waktu
+                  Keterangan
+                }
+              }
+            `,
+            variables: {
+              Name: this.name,
+              Telephone: this.telNo,
+              Tanggal: this.tanggal,
+              Lapangan: this.lapangan,
+              Waktu: this.waktu,
+              Keterangan: this.keterangan,
+            },
+          });
+          alert("booking success");
+          location.reload();
+        }
+      }
     },
   },
 };
@@ -241,7 +441,7 @@ nav {
   transition: 0.8s;
 }
 nav.navy {
-  background-color: #000080;
+  background-color: #1266f1;
   padding: 0%, 4%;
 }
 
@@ -387,7 +587,7 @@ h2 {
   display: inline-block;
   padding: 8px;
   color: white;
-  background-color: #000;
+  background-color: #1266f1;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -558,10 +758,10 @@ h2 {
 /**Footer */
 .btn {
   padding: 0.5rem 1rem;
-  background: #000080;
-  color: #fbfaf5;
-  border: 1px solid #fbfaf5;
-  border-radius: 0.25rem;
+  background: #0e1111;
+  border: 2px solid #93caed;
+  cursor: pointer;
+  color: white;
 }
 .footer {
   background: #000080;
@@ -642,13 +842,18 @@ h2 {
   margin-right: 25%;
 }
 .footer .footer-content .contact-form button {
-  margin-left: 42%;
+  background: #0e1111;
+  border: 2px solid #93caed;
+  cursor: pointer;
+  color: white;
+  margin-left: 10%;
 }
 .footer .footer-content .contact-form button:hover {
   background: #0e1111;
   border: 2px solid #93caed;
   transition: 1.5s;
   cursor: pointer;
+  color: white;
 }
 /* Akhir Footer*/
 
