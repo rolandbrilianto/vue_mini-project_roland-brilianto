@@ -1,265 +1,461 @@
 <template>
-  <div class="home">
-    <section class="header" id="home" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(img/bg.png)">
-      <nav id="nav">
-        <a href="index.html"><img src="img/logo.png" /></a>
-        <div class="nav-links" id="navLinks">
-          <i class="fas fa-times" onclick="hideMenu()"></i>
+  <div>
+    <section ref="home" class="header" id="home" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(https://res.cloudinary.com/dniuy65ic/image/upload/v1652381773/bgFutsal_wrojpi.jpg)">
+      <nav id="nav" class="navy">
+        <a href="index.html"><img src="../assets/logo.png" /></a>
+        <div class="nav-links mt-2" v-bind:style="{ right: computedRight }">
+          <i class="fas fa-times" @click="closeMenu()"></i>
           <ul>
-            <li><a href="#home" class="navbar-section">Home</a></li>
-            <li><a href="#konten" class="navbar-section">Konten</a></li>
-            <li><a href="#layanan" class="navbar-section">Layanan</a></li>
-            <li><a href="#tentangKami" class="navbar-section">Tentang Kami</a></li>
-            <li><a href="#ourlocation" class="navbar-section">Our Location</a></li>
-            <li><a href="#login" class="navbar-section">Login</a></li>
+            <li><a @click="goto('home')" class="navbar-section" style="cursor: pointer">Home</a></li>
+            <li><a @click="goto('tentang-kami')" class="navbar-section" style="cursor: pointer">Tentang Kami</a></li>
+            <li><a @click="goto('fasilitas')" class="navbar-section" style="cursor: pointer">Fasilitas Kami</a></li>
+            <li><a @click="goto('ourlocation')" style="cursor: pointer" class="navbar-section">Our Location</a></li>
+            <li><a @click="goto('booking')" style="cursor: pointer" class="navbar-section">Book</a></li>
+            <li><a @click="goto('footer')" class="navbar-section" style="cursor: pointer">Login</a></li>
           </ul>
         </div>
-        <i class="fas fa-bars" onclick="showMenu()"></i>
+        <i class="fas fa-bars" @click="showMenu()"></i>
       </nav>
 
       <div class="text-box">
         <h1>Estadio Futsal</h1>
 
-        <p>Tim EO dengan pengalaman lebih dari 22 Tahun dalam membantu anda menemukan konsep terbaik <br />untuk acara dengan layanan terbaik dan event lain yang tak terlupakan</p>
+        <p>Jln Perjuangan No 66, Bekasi Utara 17142 <br />0877 2121 0909</p>
         <a href="" class="hero-btn">Selengkapnya</a>
       </div>
       <!--
     --></section>
 
-    <!--konten-->
-    <section class="konten" id="konten">
-      <h1>Konten</h1>
-      <p>Berikut adalah produk layanan terbaik kami</p>
-
-      <div class="row1">
-        <div class="konten-col">
-          <h3>Webinar</h3>
-          <p>
-            Mengapa webinar dalam kurun waktu terakhir sangat diminati? Webinar merupakan salah satu sarana daring yang dapat menghubungkan orang, tim, dan organisai dari mana saja secara real-time. Webinar memungkinkan banyak orang untuk
-            terlibat dalam diskusi atau pelatihan daring, dengan membagikan audio, dokumen atau presentasi.
-          </p>
-        </div>
-
-        <div class="konten-col">
-          <h3>Launching Product</h3>
-          <p>Product Launching merupakan acara yang sangat penting bagi setiap bisnis baik publik maupun private. Kesuksesan acara mempengaruhi tingkat penjualan dan exposure dari produk yang akan dirilis.</p>
-        </div>
-
-        <div class="konten-col">
-          <h3>Public Expose</h3>
-          <p>
-            Public Expose adalah acara yang diselenggarakan perusahaan terbuka atau publik dalam rangka pemaparan informasi internal perusahaan seperti kinerja hingga perubahan struktur. Biasanya Public Expose dilakukan juga ketika sebuah
-            perusahaan melakukan Penawaran Umum Perdana Saham atau Go Public maupun Penawaran Umum Obligasi.
-          </p>
-        </div>
-      </div>
-
-      <div class="row2">
-        <div class="konten-col">
-          <h3>Investor Gathering</h3>
-          <p>
-            Investor Gathering adalah acara yang diselenggarakan oleh perusahaan terbuka atau publik dengan mengundang investor atau pemegang saham dan calon beserta stakeholder lainnya seperti analis dan media. Ini merupakan acara yang
-            diperuntukkan untuk mempromosikan saham atau IPO (jika baru mau go public) dan sering dikaitkan sebagai acara penting dalam kesuksesan offering saham.
-          </p>
-        </div>
-
-        <div class="konten-col">
-          <h3>RUPS</h3>
-          <p>
-            RUPS (Rapat Umum Pemegang Saham) merupakan wadah para pemegang saham untuk mengambil keputusan penting yang berkaitan dengan modal yang ditanam dalam perusahaan, dengan memperhatikan ketentuan Anggaran Dasar dan peraturan
-            perundang-undangan. Pengambilan keputusan dalam RUPS harus dilakukan secara wajar dan transparan dan didasarkan pada kepentingan usaha Perseroan dalam jangka panjang.
-          </p>
-        </div>
-        <div class="konten-col">
-          <h3>Company outing, gathering and anniversary</h3>
-          <p>
-            Selain menjadi EO jakarta untuk berbagai acara perusahaan yang formal, Kami juga dipercaya menjadi EO untuk acara outing dan gathering untuk perusahaan maupun employee. Kami ditunjuk untuk menghandle gathering untuk customer,
-            investor hingga employee (karyawan), seperti Closing Dinner Rights Issue Bank BNI (Bali), Closing Dinner Obligasi Bank BJB (Jogja). Ratusan employee gathering dan company anniversary (ulang tahun perusahaan) telah kami tangani.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!--Akhir konten-->
-
-    <!------- Layanan ------->
-    <section id="layanan" class="layanan" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(img/bg2.jpg)">
-      <h1>Layanan</h1>
-      <p>
-        Kami dikenal sebagai EO Jakarta untuk Corporate di Jakarta Seiring pertumbuhan permintaan client, pada 2004 Kami memulai jasa EO jakarta untuk perusahaan publik dan corporate. Dengan jasa EO, nama Royal Promosindo semakin dikenal
-        karena kualitas jasa yang diberikan tidak kalah dengan pemain lama. Lambat tahun, kini Royal Promosindo lebih dikenal sebagai penyedia jasa EO jakarta dibandingkan jasa periklanan yang dahulu merupakan core business kami.
-      </p>
-
-      <!-- Slideshow container -->
-      <div class="slideshow-container">
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-          <div class="numbertext">1 / 3</div>
-          <img src="img/presentation.jpeg" style="width: 100%" />
-          <div class="text">Seminar</div>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">2 / 3</div>
-          <img src="img/wedding.jpg" style="width: 100%" />
-          <div class="text">Wedding</div>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">3 / 3</div>
-          <img src="img/gathering.jpg" style="width: 100%" />
-          <div class="text">Gathering</div>
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      <br />
-
-      <!-- The dots/circles -->
-      <div style="text-align: center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-      </div>
-    </section>
-    <!------- Akhir Layanan ------->
-
     <!--Tentang Kami-->
-    <section id="tentangKami" class="tentangkami">
+    <section id="tentangKami" class="tentangkami" ref="tentang-kami">
       <div class="about-section">
         <h1>Tentang Kami</h1>
-        <p>
-          Pada awalnya kami terkenal dengan Advertising company, setelah mengembangkan diri dibidang printing kami terkenal dengan sebutan printing company, dan setelah kami mengembangkan diri di bidang Event Organizer kami terkenal dengan
-          EO. Hal ini menandakan bahwa kami serius dan mempunyai komitmen dalam menjaga kualitas dan pelayanan demi kepuasan pelanggan.
-        </p>
-        <p>
-          Sejak awal berdirinya, royal promosindo memposisikan diri pada segmen pasar perusahaan publik, segmen pasar ini merupakan wilayah yang sangat potensial dan dinamis dengan terus meningkatnya jumlah perusahaan yang go public. Hingga
-          saat ini, royal promosindo telah menangani lebih dari 100 perusahaan, dan 95% diantaranya adalah perusahaan publik..
-        </p>
-
-        <br />
-        <h2>Kenapa kerja sama Royal Promosindo aja?</h2>
-        <p>
-          Pada awalnya kami terkenal dengan Advertising company, setelah mengembangkan diri dibidang printing kami terkenal dengan sebutan printing company, dan setelah kami mengembangkan diri di bidang Event Organizer kami terkenal dengan
-          EO. Hal ini menandakan bahwa kami serius dan mempunyai komitmen dalam menjaga kualitas dan pelayanan demi kepuasan pelanggan.
-        </p>
-        <br />
-        <p>
-          • Keunggulan kami dibidang Event Organizer adalah ditandai dengan banyaknya perusahaan swasta nasional maupun Badan Usaha Milik Negara (BUMN) telah mempercayakan kegiatan Event Organizer kepada kami baik untuk acara Ulang Tahun
-          Perusahaan, Launching Product, Public Expose, Investor Gathering, RUPS, CSR, Rakernas, Seminar, Outing maupun City Tour.
+        <p v-for="list in isi" :key="list">
+          {{ list.text }}
         </p>
       </div>
-
-      <h2 style="text-align: center">Sejarah Kami</h2>
-      <div class="row">
-        <div class="column">
-          <div class="card">
-            <img src="img/advertising.png" alt="Jane" style="width: 100%" />
-            <div class="container">
-              <h2>1999</h2>
-              <p class="title">Advertising</p>
-              <p>berdiri dengan meyediakan Jasa Advertising</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <img src="img/printing.jpg" alt="Mike" style="width: 100%" />
-            <div class="container">
-              <h2>2002</h2>
-              <p class="title">Printing</p>
-              <p>Mengembangkan usaha di bidang Printing</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <img src="img/event organizer.jpg" alt="John" style="width: 100%" />
-            <div class="container">
-              <h2>2004</h2>
-              <p class="title">Event Organizer</p>
-              <p>Menyediakan Jasa Event Organizer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Akhir Tentang Kami-->
-
-    <!-- Our Location-->
-    <section id="ourlocation" class="ourlocation" style="background-color: #93caed">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
-          fill="#acd1af"
+          fill="#93caed"
           fill-opacity="1"
           d="M0,224L40,234.7C80,245,160,267,240,261.3C320,256,400,224,480,202.7C560,181,640,171,720,181.3C800,192,880,224,960,250.7C1040,277,1120,299,1200,309.3C1280,320,1360,320,1400,320L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
         ></path>
       </svg>
-      <h1 style="text-align: center">Our Location</h1>
+    </section>
+    <section ref="fasilitas">
+      <h1>Fasilitas Kami</h1>
+      <ApolloQuery
+        :query="
+          (gql) => gql`
+            query MyQuery {
+              fasilitas {
+                judul
+                judul_second
+                deskripsi
+                foto
+              }
+            }
+          `
+        "
+      >
+        <template v-slot="{ result: { loading, error, data } }">
+          <!-- Loading -->
+          <div v-if="loading" class="loading apollo">Loading...</div>
 
-      <div class="rowMap">
-        <div class="kolom">
-          <div class="mapouter">
-            <div class="gmap_canvas">
-              <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Politeknik%20Negeri%20Jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe
-              ><a href="https://www.fridaynightfunkin.net/friday-night-funkin-mods-fnf-play-online/">FNF Mods</a>
+          <!-- Error -->
+          <div v-else-if="error" class="error apollo">An error occurred</div>
+
+          <!-- Result -->
+          <div v-else-if="data" class="result apollo">
+            <div class="row">
+              <div class="column" v-for="Fasilitas in data.fasilitas" :key="Fasilitas.id">
+                <div class="card">
+                  <img :src="Fasilitas.foto" alt="Mike" style="width: 100%" />
+                  <div class="container">
+                    <h2>{{ Fasilitas.judul }}</h2>
+                    <p class="title">{{ Fasilitas.judul_second }}</p>
+                    <p>{{ Fasilitas.deskripsi }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="kolom">
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/4eJ8sJGh5dA"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <!-- No result -->
+          <div v-else class="no-result apollo">No result :(</div>
+        </template>
+      </ApolloQuery>
+    </section>
+
+    <!--Akhir Tentang Kami-->
+
+    <!-- Our Location-->
+    <div ref="ourlocation">
+      <section id="ourlocation" class="ourlocation" style="background-color: #93caed">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#ffffff"
+            fill-opacity="1"
+            d="M0,224L40,234.7C80,245,160,267,240,261.3C320,256,400,224,480,202.7C560,181,640,171,720,181.3C800,192,880,224,960,250.7C1040,277,1120,299,1200,309.3C1280,320,1360,320,1400,320L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+          ></path>
+        </svg>
+        <h1 style="text-align: center">Our Location</h1>
+
+        <div class="rowMap">
+          <div class="kolom">
+            <div class="mapouter">
+              <div class="gmap_canvas">
+                <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=estadio%20futsal&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe
+                ><a href="https://www.fridaynightfunkin.net/friday-night-funkin-mods-fnf-play-online/">FNF Mods</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="kolom">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/rmJMKYE9RwI"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
+      </section>
+    </div>
+    <section ref="booking">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#93caed"
+          fill-opacity="1"
+          d="M0,224L40,234.7C80,245,160,267,240,261.3C320,256,400,224,480,202.7C560,181,640,171,720,181.3C800,192,880,224,960,250.7C1040,277,1120,299,1200,309.3C1280,320,1360,320,1400,320L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+        ></path>
+      </svg>
+      <div>
+        <h1>Booking</h1>
+        <ApolloQuery
+          :query="
+            (gql) => gql`
+              query MyQuery2 {
+                booking {
+                  id
+                  Name
+                  Telephone
+                  Lapangan
+                  Tanggal
+                  Waktu
+                  Keterangan
+                }
+              }
+            `
+          "
+        >
+          <template v-slot="{ result: { loading, error, data } }">
+            <!-- Loading -->
+            <div v-if="loading" class="loading apollo">Loading...</div>
+
+            <!-- Error -->
+            <div v-else-if="error" class="error apollo">An error occurred{{ error }}</div>
+
+            <!-- Result -->
+            <div v-else-if="data" class="result apollo">
+              <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Nama</th>
+                      <th scope="col">No Telp</th>
+                      <th scope="col">Lapangan</th>
+                      <th scope="col">Tanggal</th>
+                      <th scope="col">Pukul</th>
+                      <th scope="col">Keterangan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="Booking in data.booking" :key="Booking.id">
+                      <td>{{ Booking.id }}</td>
+                      <td>{{ Booking.Name }}</td>
+                      <td>{{ Booking.Telephone }}</td>
+                      <td>{{ Booking.Lapangan }}</td>
+                      <td>{{ Booking.Tanggal }}</td>
+                      <td>{{ Booking.Waktu }}</td>
+                      <td>{{ Booking.Keterangan }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                      <div class="card bg-primary shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header"><h3 class="text-center text-light font-weight-light my-4">Booking</h3></div>
+                        <div class="card-body">
+                          <form>
+                            <div class="form-floating mb-3">
+                              <input class="form-control" v-model="name" id="inputName" type="text" placeholder="Roland Brilianto" required />
+                              <label for="inputName">Nama</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <input class="form-control" v-model="telNo" id="inputTelp" type="text" placeholder="Telepon" required />
+                              <label for="inputTelp">Telepon</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <input class="form-control" v-model="tanggal" id="date" type="date" placeholder="Tanggal" required />
+                              <label for="inputDate">Tanggal</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <select class="form-select" v-model="lapangan" aria-label="Default select example" required>
+                                <option value="Lapangan 1">Lapangan 1</option>
+                                <option value="Lapangan 2">Lapangan 2</option>
+                              </select>
+
+                              <label for="inputDate">Lapangan</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <select class="form-select" v-model="waktu" aria-label="Default select example" required>
+                                <option value="16.00 - 17.00">16.00 - 17.00</option>
+                                <option value="17.00 - 18.00">17.00 - 18.00</option>
+                                <option value="18.00 - 19.00">18.00 - 19.00</option>
+                                <option value="19.00 - 20.00">19.00 - 20.00</option>
+                                <option value="20.00 - 21.00">20.00 - 21.00</option>
+                                <option value="21.00 - 22.00">21.00 - 22.00</option>
+                                <option value="22.00 - 23.00">22.00 - 23.00</option>
+                                <option value="23.00 - 24.00">23.00 - 24.00</option>
+                              </select>
+
+                              <label for="inputDate">Pukul</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <select class="form-select" v-model="keterangan" aria-label="Default select example" required>
+                                <option value="Langsung Bayar">Langsung Bayar</option>
+                                <option value="Bayar Nanti">Bayar Nanti</option>
+                              </select>
+
+                              <label for="inputDate">Bayar</label>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                              <a class="btn btn-success" @click="book(data.booking)">Book Now</a>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- No result -->
+            <div v-else class="no-result apollo">No result :(</div>
+          </template>
+          <ApolloSubscribeToMore
+            :document="
+              (gql) => gql`
+                subscription MySubscription {
+                  booking {
+                    id
+                    Name
+                    Tanggal
+                    Lapangan
+                    Telephone
+                    Waktu
+                    Keterangan
+                  }
+                }
+              `
+            "
+            :updateQuery="updated"
+          />
+        </ApolloQuery>
       </div>
     </section>
     <!--Akhir Our Location-->
+    <section ref="footer">
+      <footer class="text-center text-lg-start mt-xl-5 pt-4" style="background-color: #1266f1; border: 3px solid #93caed">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h5 class="text-uppercase mb-4 text-light">address</h5>
 
-    <div class="footer" id="login">
-      <div class="footer-content">
-        <div class="footer-section address">
-          <p>Jl. Tebet Barat Dalam I C No.43, Tebet, Jakarta Selatan, DKI Jakarta 10033</p>
-          <div class="contact">
-            <span><i class="fas fa-mobile-alt"></i>&nbsp; (021) 99991231</span>
-            <span><i class="fas fa-envelope-open-text"></i>&nbsp; Info@royalpromosindo.co.id</span>
-          </div>
-          <div class="socials">
-            <a href=""><i class="fab fa-facebook" style="color: white"></i></a>
-            <a href=""><i class="fab fa-instagram" style="color: purple"></i></a>
-            <a href=""><i class="fab fa-youtube" style="color: red"></i></a>
-          </div>
-        </div>
-        <div class="footer-section contact-form">
-          <h2>Login</h2>
-          <br />
-          <form name="form1" onsubmit="return validate();">
-            <input class="text-input contact-input" type="text" name="name" placeholder="Name" required />
-            <input type="email" name="email" class="text-input contact-input" placeholder="E-mail" required />
-            <button class="btn" type="submit" name="submit">Submit</button>
-          </form>
-        </div>
-      </div>
+              <ul class="list-unstyled mb-4">
+                <li>
+                  <p class="text-white">Jln Perjuangan No 66, Bekasi Utara 17142</p>
+                </li>
+                <li>
+                  <p class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-telephone" viewBox="0 0 16 16">
+                      <path
+                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
+                      />
+                    </svg>
+                    0877 2121 0909
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
 
-      <div class="footer-bottom">&copy; royalpromosindo.co.id | Designed by Andhika Cahyadi</div>
-    </div>
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
+              <h5 class="text-uppercase mb-4 text-center text-light">Link</h5>
+
+              <ul class="list-unstyled text-center">
+                <li class="mb-1">
+                  <a @click="goto('home')" class="text-white" style="text-decoration: none; cursor: pointer">Home</a>
+                </li>
+                <li class="mb-1">
+                  <a @click="goto('tentang-kami')" style="text-decoration: none; cursor: pointer" class="text-white">Tentang Kami</a>
+                </li>
+                <li class="mb-1">
+                  <a @click="goto('fasilitas')" style="text-decoration: none; cursor: pointer" class="text-white">Fasilitas Kami</a>
+                </li>
+                <li class="mb-1">
+                  <a @click="goto('ourlocation')" style="text-decoration: none; cursor: pointer" class="text-white">Our Location</a>
+                </li>
+                <li class="mb-1">
+                  <a @click="goto('booking')" style="text-decoration: none; cursor: pointer" class="text-white">Book</a>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 me-0">
+              <h5 class="text-uppercase mb-4 text-light">Login Form</h5>
+
+              <div class="form-outline form-white">
+                <input type="text" v-model="username" id="form5Example2" class="form-control" />
+                <label class="form-label" for="form5Example2">Username</label>
+              </div>
+              <div class="form-outline form-white mb-4">
+                <input type="password" v-model="password" id="form5Example2" class="form-control" />
+                <label class="form-label" for="form5Example2">Password</label>
+              </div>
+
+              <button type="submit" class="btn btn-success btn-outline-white btn-block" @click="doLogin">Login</button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center text-light p-3" style="border: 2px solid #93caed">
+          © 2022 Copyright:
+          <a class="text-white" style="text-decoration: none">Roland Brilianto</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </section>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 
+import gql from "graphql-tag";
 export default {
   name: "IndexView",
+  data() {
+    return {
+      right: "-200px",
+      name: "",
+      telNo: "",
+      tanggal: null,
+      keterangan: null,
+      waktu: null,
+      lapangan: null,
+
+      username: "",
+      password: "",
+    };
+  },
+  computed: {
+    computedRight: function () {
+      return this.right;
+    },
+    isi() {
+      return this.$store.state.listParaph;
+    },
+  },
+  methods: {
+    doLogin() {
+      if (this.username === "admin" && this.password === "admin") {
+        alert("login berhasil, welcome ", this.username);
+        this.$router.push("/dashboard");
+      } else {
+        alert("login gagal");
+      }
+    },
+    updated(previousResult, { subscriptionData }) {
+      return {
+        booking: subscriptionData.data.booking,
+      };
+    },
+    goto(refName) {
+      var element = this.$refs[refName];
+      var top = element.offsetTop;
+      window.scrollTo(0, top);
+    },
+    showMenu() {
+      this.right = 0;
+    },
+    closeMenu() {
+      this.right = "-200px";
+    },
+    book(booking) {
+      if (this.name == "" || this.telNo == "" || this.tanggal == "" || this.waktu == "" || this.lapangan == "" || this.keterangan == "") {
+        alert("isi data lengkap");
+      } else {
+        let i;
+        let flag = 0;
+        for (i = 0; i < booking.length; i++) {
+          if (this.tanggal == booking[i].Tanggal && this.waktu == booking[i].Waktu && this.lapangan == booking[i].Lapangan) {
+            flag = flag + 1;
+          }
+        }
+        if (flag > 0) {
+          alert("Booking GAGAL! silahkan booking di jadwal yang belom ter booking, silahkan liat tabel");
+        } else {
+          console.log("data masuk");
+          this.$apollo.mutate({
+            mutation: gql`
+              mutation MyMutation($Keterangan: String!, $Lapangan: String!, $Name: String!, $Tanggal: date!, $Telephone: String!, $Waktu: String!) {
+                insert_booking_one(object: { Name: $Name, Telephone: $Telephone, Tanggal: $Tanggal, Lapangan: $Lapangan, Waktu: $Waktu, Keterangan: $Keterangan }) {
+                  Name
+                  Telephone
+                  Tanggal
+                  Lapangan
+                  Waktu
+                  Keterangan
+                }
+              }
+            `,
+            variables: {
+              Name: this.name,
+              Telephone: this.telNo,
+              Tanggal: this.tanggal,
+              Lapangan: this.lapangan,
+              Waktu: this.waktu,
+              Keterangan: this.keterangan,
+            },
+          });
+          alert("booking success");
+          location.reload();
+        }
+      }
+    },
+  },
 };
 </script>
 <style>
@@ -306,7 +502,7 @@ nav {
   transition: 0.8s;
 }
 nav.navy {
-  background-color: #000080;
+  background-color: #1266f1;
   padding: 0%, 4%;
 }
 
@@ -336,7 +532,7 @@ nav .fas {
   content: "";
   width: 0%;
   height: 2px;
-  background: #ffbe61;
+  background: #93caed;
   display: block;
   margin: auto;
   transition: 0.8s;
@@ -374,91 +570,14 @@ nav .fas {
   cursor: pointer;
 }
 .hero-btn:hover {
-  background: #ffbe61;
+  background: #1266f1;
   transition: 1.2s;
-  color: #0e1111;
+  color: white;
 }
 
-/*Konten*/
-.konten {
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  padding-top: 75px;
-  background: #fbfaf5;
-  transition: 2s;
-}
-
-.row1 {
-  margin-top: 5%;
-  display: flex;
-  justify-content: space-between;
-}
-.row2 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.konten-col {
-  flex-basis: 31%;
-  background: #93caed;
-  border-radius: 10px;
-  margin-bottom: 5%;
-  padding: 20px 12px;
-  box-sizing: border-box;
-  margin-left: 20px;
-  margin-right: 20px;
-  transition: 0.5s;
-}
-h1 {
-  font-size: 50px;
-  font-weight: 600;
-}
-h3 {
-  text-align: center;
-  margin: 10px 0;
-  font-size: 30px;
-  font-weight: 600;
-}
-.konten-col:hover {
-  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 2);
-}
-.konten p {
-  font-size: 24px;
-}
-.konten-col p {
-  color: #0e1111;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 22px;
-  padding: 10px;
-}
-
-/* Layanan */
-.layanan {
-  padding-top: 75px;
-  height: 100vh;
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  text-align: center;
-}
-.layanan h1 {
-  color: #fbfaf5;
-}
-.layanan p {
-  margin-top: 5%;
-  color: #fbfaf5;
-  margin: 40px;
-  font-size: 23px;
-  font-weight: 500;
-}
 /* Tentang Kami */
 
 .tentangkami {
-  padding-top: 270px;
-  background-color: #acd1af;
   width: 100%;
 }
 
@@ -501,7 +620,7 @@ h2 {
 .about-section {
   padding: 50px;
   text-align: center;
-  background-color: #ffbe61;
+  background-color: #93caed;
   color: #0e1111;
 }
 .about-section p {
@@ -529,7 +648,7 @@ h2 {
   display: inline-block;
   padding: 8px;
   color: white;
-  background-color: #000;
+  background-color: #1266f1;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -698,22 +817,23 @@ h2 {
 }
 
 /**Footer */
-.btn {
-  padding: 0.5rem 1rem;
-  background: #000080;
-  color: #fbfaf5;
-  border: 1px solid #fbfaf5;
-  border-radius: 0.25rem;
+/* .btn-footer {
+  padding: 0px 5px 0px 5px;
+  background: #1266f1;
+  border: 2px solid #93caed;
+  cursor: pointer;
+  color: white;
 }
 .footer {
-  background: #000080;
+  background: #1266f1;
   color: #fbfaf5;
   height: 300px;
   position: relative;
+  width: 100%;
 }
 
 .footer .footer-content {
-  border: 5px solid #0e1111;
+  border: 5px solid #93caed;
   height: 250px;
   display: flex;
 }
@@ -722,7 +842,7 @@ h2 {
   color: #fbfaf5;
 }
 .footer .footer-content .address h1 span {
-  color: #160e7f;
+  color: #1266f1;
 }
 .footer .footer-content .address p {
   font-size: 20px;
@@ -752,7 +872,7 @@ h2 {
   padding: 40px;
 }
 .footer .footer-bottom {
-  background: black;
+  background: #1266f1;
   color: #fbfaf5;
   position: absolute;
   height: 50px;
@@ -767,7 +887,7 @@ h2 {
 }
 .footer .footer-content .contact-form .contact-input {
   background: #fbfaf5;
-  color: #0e1111;
+  color: #1266f1;
   margin-bottom: 10px;
   line-height: 1.5rem;
   padding: 0.7rem 1.2rem;
@@ -784,14 +904,20 @@ h2 {
   margin-right: 25%;
 }
 .footer .footer-content .contact-form button {
-  margin-left: 42%;
+  background: #1266f1;
+  border: 2px solid #93caed;
+  cursor: pointer;
+  color: white;
+  margin-left: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .footer .footer-content .contact-form button:hover {
-  background: #0e1111;
+  background: #1266f1;
   border: 2px solid #93caed;
   transition: 1.5s;
   cursor: pointer;
-}
+  color: white;
+} */
 /* Akhir Footer*/
 
 @media (max-width: 750px) {

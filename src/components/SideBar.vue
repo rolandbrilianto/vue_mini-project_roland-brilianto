@@ -47,7 +47,7 @@ export default {
       this.$router.push("/dashboard-table");
     },
     home() {
-      this.$router.push("/");
+      this.$router.push("/dashboard");
     },
     form() {
       this.$router.push("/dashboard-form");
