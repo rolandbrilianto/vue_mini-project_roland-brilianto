@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
 import IndexView from "../views/IndexView.vue";
 import DashboardView from "../views/DashboardView.vue";
 import DashboardTable from "../views/DashboardTable.vue";
@@ -18,6 +19,9 @@ const routes = [
     path: "/dashboard",
     name: "dashboard",
     component: DashboardView,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/dashboard-table",
