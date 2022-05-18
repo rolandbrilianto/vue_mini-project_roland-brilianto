@@ -7,7 +7,7 @@
       </button>
       <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-          <a class="nav-link px-3 text-light" @click="toHome" style="cursor: pointer">Sign out</a>
+          <a class="nav-link px-3 text-light" @click="doLogout" style="cursor: pointer">Sign out</a>
         </div>
       </div>
     </header>
@@ -16,8 +16,9 @@
 <script>
 export default {
   name: "NavigationBar",
+
   methods: {
-    toHome() {
+    doLogout() {
       this.$router.push("/");
     },
   },

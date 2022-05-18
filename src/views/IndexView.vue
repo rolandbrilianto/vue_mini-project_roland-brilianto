@@ -2,7 +2,7 @@
   <div>
     <section ref="home" class="header" id="home" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(https://res.cloudinary.com/dniuy65ic/image/upload/v1652381773/bgFutsal_wrojpi.jpg)">
       <nav id="nav" class="navy">
-        <a href="index.html"><img src="img/logo.png" /></a>
+        <a href="index.html"><img src="../assets/logo.png" /></a>
         <div class="nav-links mt-2" v-bind:style="{ right: computedRight }">
           <i class="fas fa-times" @click="closeMenu()"></i>
           <ul>
@@ -10,7 +10,8 @@
             <li><a @click="goto('tentang-kami')" class="navbar-section" style="cursor: pointer">Tentang Kami</a></li>
             <li><a @click="goto('fasilitas')" class="navbar-section" style="cursor: pointer">Fasilitas Kami</a></li>
             <li><a @click="goto('ourlocation')" style="cursor: pointer" class="navbar-section">Our Location</a></li>
-            <li><a class="navbar-section" style="cursor: pointer">Login</a></li>
+            <li><a @click="goto('booking')" style="cursor: pointer" class="navbar-section">Book</a></li>
+            <li><a @click="goto('footer')" class="navbar-section" style="cursor: pointer">Login</a></li>
           </ul>
         </div>
         <i class="fas fa-bars" @click="showMenu()"></i>
@@ -29,18 +30,8 @@
     <section id="tentangKami" class="tentangkami" ref="tentang-kami">
       <div class="about-section">
         <h1>Tentang Kami</h1>
-        <p>
-          ESTADIO FUTSAL dibangun oleh para penggila futsal yang ingin memberikan kenikmatan dan kepuasan permainan kepada para pencinta futsal di kota Bekasi dan sekitar nya. Konsep eco-friendly dan ramah lingkungan telah menjadikan
-          Estadio Futsal sebagai tempat bermain futsal yang sangat mendukung dan baik.
-        </p>
-        <p>
-          Kami menyediakan 2 lapangan dengan standard international berlapiskan interlock-vinyl dan memiliki ukuran minimal standard international, akan memberikan kenikmatan dan kenyamanan permainan kepada para pencinta futsal. Selain itu
-          dengan ada nya jembatan tribun penonton di lantai-2, diharapkan akan memberikan atmosfere yang berbeda baik kepada para pemain maupun para penonton pertandingan.
-        </p>
-
-        <p>
-          Selain standard lapangan yang sangat baik, Fasilitas pendukung yang baik juga menjadikan Estadio Futsal sebagai sarana olahraga yang sangat nyaman. Ruang ganti dan kamar mandi yang sangat bersih menjadi komitmen yang diberikan
-          oleh pihak Estadio Futsal.
+        <p v-for="list in isi" :key="list">
+          {{ list.text }}
         </p>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -134,7 +125,7 @@
         </div>
       </section>
     </div>
-    <section>
+    <section ref="booking">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#93caed"
@@ -283,39 +274,95 @@
       </div>
     </section>
     <!--Akhir Our Location-->
+    <section ref="footer">
+      <footer class="text-center text-lg-start mt-xl-5 pt-4" style="background-color: #1266f1; border: 3px solid #93caed">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <h5 class="text-uppercase mb-4 text-light">address</h5>
 
-    <div class="footer" id="login">
-      <div class="footer-content">
-        <div class="footer-section address">
-          <p>Jl. Tebet Barat Dalam I C No.43, Tebet, Jakarta Selatan, DKI Jakarta 10033</p>
-          <div class="contact">
-            <span><i class="fas fa-mobile-alt"></i>&nbsp; (021) 99991231</span>
-            <span><i class="fas fa-envelope-open-text"></i>&nbsp; Info@royalpromosindo.co.id</span>
-          </div>
-          <div class="socials">
-            <a href=""><i class="fab fa-facebook" style="color: white"></i></a>
-            <a href=""><i class="fab fa-instagram" style="color: purple"></i></a>
-            <a href=""><i class="fab fa-youtube" style="color: red"></i></a>
-          </div>
-        </div>
-        <div class="footer-section contact-form">
-          <h2>Login</h2>
-          <br />
-          <form name="form1" onsubmit="return validate();">
-            <input class="text-input contact-input" type="text" name="name" placeholder="Name" required />
-            <input type="email" name="email" class="text-input contact-input" placeholder="E-mail" required />
-            <button class="btn" type="submit" name="submit">Submit</button>
-          </form>
-        </div>
-      </div>
+              <ul class="list-unstyled mb-4">
+                <li>
+                  <p class="text-white">Jln Perjuangan No 66, Bekasi Utara 17142</p>
+                </li>
+                <li>
+                  <p class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-telephone" viewBox="0 0 16 16">
+                      <path
+                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
+                      />
+                    </svg>
+                    0877 2121 0909
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
 
-      <div class="footer-bottom">&copy; royalpromosindo.co.id | Designed by Roland Brilianto</div>
-    </div>
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
+              <h5 class="text-uppercase mb-4 text-center text-light">Link</h5>
+
+              <ul class="list-unstyled text-center">
+                <li class="mb-1">
+                  <a @click="goto('home')" class="text-white" style="text-decoration: none; cursor: pointer">Home</a>
+                </li>
+                <li class="mb-1">
+                  <a @click="goto('tentang-kami')" style="text-decoration: none; cursor: pointer" class="text-white">Tentang Kami</a>
+                </li>
+                <li class="mb-1">
+                  <a @click="goto('fasilitas')" style="text-decoration: none; cursor: pointer" class="text-white">Fasilitas Kami</a>
+                </li>
+                <li class="mb-1">
+                  <a @click="goto('ourlocation')" style="text-decoration: none; cursor: pointer" class="text-white">Our Location</a>
+                </li>
+                <li class="mb-1">
+                  <a @click="goto('booking')" style="text-decoration: none; cursor: pointer" class="text-white">Book</a>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 me-0">
+              <h5 class="text-uppercase mb-4 text-light">Login Form</h5>
+
+              <div class="form-outline form-white">
+                <input type="text" v-model="username" id="form5Example2" class="form-control" />
+                <label class="form-label" for="form5Example2">Username</label>
+              </div>
+              <div class="form-outline form-white mb-4">
+                <input type="password" v-model="password" id="form5Example2" class="form-control" />
+                <label class="form-label" for="form5Example2">Password</label>
+              </div>
+
+              <button type="submit" class="btn btn-success btn-outline-white btn-block" @click="doLogin">Login</button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center text-light p-3" style="border: 2px solid #93caed">
+          © 2022 Copyright:
+          <a class="text-white" style="text-decoration: none">Roland Brilianto</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </section>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+
 import gql from "graphql-tag";
 export default {
   name: "IndexView",
@@ -328,14 +375,28 @@ export default {
       keterangan: null,
       waktu: null,
       lapangan: null,
+
+      username: "",
+      password: "",
     };
   },
   computed: {
     computedRight: function () {
       return this.right;
     },
+    isi() {
+      return this.$store.state.listParaph;
+    },
   },
   methods: {
+    doLogin() {
+      if (this.username === "admin" && this.password === "admin") {
+        alert("login berhasil, welcome ", this.username);
+        this.$router.push("/dashboard");
+      } else {
+        alert("login gagal");
+      }
+    },
     updated(previousResult, { subscriptionData }) {
       return {
         booking: subscriptionData.data.booking,
@@ -471,7 +532,7 @@ nav .fas {
   content: "";
   width: 0%;
   height: 2px;
-  background: #ffbe61;
+  background: #93caed;
   display: block;
   margin: auto;
   transition: 0.8s;
@@ -509,9 +570,9 @@ nav .fas {
   cursor: pointer;
 }
 .hero-btn:hover {
-  background: #ffbe61;
+  background: #1266f1;
   transition: 1.2s;
-  color: #0e1111;
+  color: white;
 }
 
 /* Tentang Kami */
@@ -756,22 +817,23 @@ h2 {
 }
 
 /**Footer */
-.btn {
-  padding: 0.5rem 1rem;
-  background: #0e1111;
+/* .btn-footer {
+  padding: 0px 5px 0px 5px;
+  background: #1266f1;
   border: 2px solid #93caed;
   cursor: pointer;
   color: white;
 }
 .footer {
-  background: #000080;
+  background: #1266f1;
   color: #fbfaf5;
   height: 300px;
   position: relative;
+  width: 100%;
 }
 
 .footer .footer-content {
-  border: 5px solid #0e1111;
+  border: 5px solid #93caed;
   height: 250px;
   display: flex;
 }
@@ -780,7 +842,7 @@ h2 {
   color: #fbfaf5;
 }
 .footer .footer-content .address h1 span {
-  color: #160e7f;
+  color: #1266f1;
 }
 .footer .footer-content .address p {
   font-size: 20px;
@@ -810,7 +872,7 @@ h2 {
   padding: 40px;
 }
 .footer .footer-bottom {
-  background: black;
+  background: #1266f1;
   color: #fbfaf5;
   position: absolute;
   height: 50px;
@@ -825,7 +887,7 @@ h2 {
 }
 .footer .footer-content .contact-form .contact-input {
   background: #fbfaf5;
-  color: #0e1111;
+  color: #1266f1;
   margin-bottom: 10px;
   line-height: 1.5rem;
   padding: 0.7rem 1.2rem;
@@ -842,19 +904,20 @@ h2 {
   margin-right: 25%;
 }
 .footer .footer-content .contact-form button {
-  background: #0e1111;
+  background: #1266f1;
   border: 2px solid #93caed;
   cursor: pointer;
   color: white;
   margin-left: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .footer .footer-content .contact-form button:hover {
-  background: #0e1111;
+  background: #1266f1;
   border: 2px solid #93caed;
   transition: 1.5s;
   cursor: pointer;
   color: white;
-}
+} */
 /* Akhir Footer*/
 
 @media (max-width: 750px) {

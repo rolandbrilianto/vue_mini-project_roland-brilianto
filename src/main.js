@@ -18,7 +18,7 @@ const httpLink = new HttpLink({
 });
 
 const wsLink = new WebSocketLink({
-  uri: "ws://central-akita-79.hasura.app/v1/graphql",
+  uri: "wss://central-akita-79.hasura.app/v1/graphql",
   options: {
     reconnect: true,
   },
