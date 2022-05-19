@@ -7,6 +7,8 @@
 export default {};
 </script>
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -14,7 +16,6 @@ export default {};
   text-align: center;
   color: #2c3e50;
 }
-
 nav {
   padding: 30px;
 }
