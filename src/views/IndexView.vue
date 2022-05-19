@@ -43,7 +43,7 @@
       </svg>
     </section>
     <section ref="fasilitas">
-      <h1 class="text-center">Fasilitas Kami</h1>
+      <h1 style="text-align: center">Fasilitas Kami</h1>
       <ApolloQuery
         :query="
           (gql) => gql`
@@ -134,7 +134,7 @@
         ></path>
       </svg>
       <div>
-        <h1 class="text-center">Booking</h1>
+        <h1 style="text-align: center">Booking</h1>
         <ApolloQuery
           :query="
             (gql) => gql`
