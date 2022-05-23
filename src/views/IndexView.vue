@@ -2,7 +2,7 @@
   <div>
     <section ref="home" class="header" id="home" style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(https://res.cloudinary.com/dniuy65ic/image/upload/v1652381773/bgFutsal_wrojpi.jpg)">
       <nav id="nav" class="navy">
-        <a href="index.html"><img src="../assets/logo.png" /></a>
+        <a href=""><img src="../assets/logo.png" /></a>
         <div class="nav-links mt-2" v-bind:style="{ right: computedRight }">
           <i class="fas fa-times" @click="closeMenu()"></i>
           <ul>
@@ -300,9 +300,7 @@
                 </li>
               </ul>
             </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
             <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
               <h5 class="text-uppercase mb-4 text-center text-light">Link</h5>
 
@@ -324,11 +322,7 @@
                 </li>
               </ul>
             </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
-
-            <!--Grid column-->
             <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 me-0">
               <h5 class="text-uppercase mb-4 text-light">Login Form</h5>
 
@@ -375,7 +369,6 @@ export default {
       keterangan: null,
       waktu: null,
       lapangan: null,
-
       username: "",
       password: "",
     };
@@ -427,7 +420,6 @@ export default {
         if (flag > 0) {
           alert("Booking GAGAL! silahkan booking di jadwal yang belom ter booking, silahkan liat tabel");
         } else {
-          console.log("data masuk");
           this.$apollo.mutate({
             mutation: gql`
               mutation MyMutation($Keterangan: String!, $Lapangan: String!, $Name: String!, $Tanggal: date!, $Telephone: String!, $Waktu: String!) {
@@ -451,7 +443,6 @@ export default {
             },
           });
           alert("booking success");
-          location.reload();
         }
       }
     },
@@ -815,110 +806,6 @@ h2 {
     opacity: 1;
   }
 }
-
-/**Footer */
-/* .btn-footer {
-  padding: 0px 5px 0px 5px;
-  background: #1266f1;
-  border: 2px solid #93caed;
-  cursor: pointer;
-  color: white;
-}
-.footer {
-  background: #1266f1;
-  color: #fbfaf5;
-  height: 300px;
-  position: relative;
-  width: 100%;
-}
-
-.footer .footer-content {
-  border: 5px solid #93caed;
-  height: 250px;
-  display: flex;
-}
-.footer .footer-content h1,
-.footer .footer-content h2 {
-  color: #fbfaf5;
-}
-.footer .footer-content .address h1 span {
-  color: #1266f1;
-}
-.footer .footer-content .address p {
-  font-size: 20px;
-}
-.footer .footer-content .address .contact span {
-  display: block;
-  font-size: 1.1em;
-  margin-bottom: 8px;
-}
-.footer .footer-content .address .socials a {
-  border: 1px solid #fbfaf5;
-  width: 45px;
-  height: 41px;
-  padding-top: 5px;
-  text-align: center;
-  display: inline-block;
-  border-radius: 5px;
-  margin-right: 5px;
-  font-size: 1.3em;
-}
-.footer .footer-content .address .socials a:hover {
-  border: 2px solid #e0e0e0;
-  transition: all 1s;
-  color: #fbfaf5;
-}
-.footer .footer-content .footer-section {
-  padding: 40px;
-}
-.footer .footer-bottom {
-  background: #1266f1;
-  color: #fbfaf5;
-  position: absolute;
-  height: 50px;
-  width: 100%;
-  text-align: center;
-  bottom: 0px;
-  left: 0px;
-  padding-top: 20px;
-}
-.footer .footer-content .contact-form {
-  padding-top: 2%;
-}
-.footer .footer-content .contact-form .contact-input {
-  background: #fbfaf5;
-  color: #1266f1;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-  padding: 0.7rem 1.2rem;
-
-  font-size: 14px;
-  border: none;
-  width: 60%;
-  position: relative;
-  margin-right: 20px;
-  margin-left: 145px;
-}
-.footer .footer-content .contact-form h2 {
-  margin-left: 40%;
-  margin-right: 25%;
-}
-.footer .footer-content .contact-form button {
-  background: #1266f1;
-  border: 2px solid #93caed;
-  cursor: pointer;
-  color: white;
-  margin-left: 10%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.footer .footer-content .contact-form button:hover {
-  background: #1266f1;
-  border: 2px solid #93caed;
-  transition: 1.5s;
-  cursor: pointer;
-  color: white;
-} */
-/* Akhir Footer*/
 
 @media (max-width: 750px) {
   html,

@@ -45,9 +45,7 @@
                         <th scope="col">Lapangan</th>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Pukul</th>
-
                         <th scope="col">Keterangan</th>
-
                         <th scope="col">Aksi</th>
                       </tr>
                     </thead>
@@ -165,13 +163,9 @@ export default {
       name: "",
       telNo: "",
       tanggal: null,
-
       waktu: null,
       lapangan: null,
       id: "",
-      judul: "Tribun dfsfsef",
-      judul_second: "ghnfgb",
-      keteranganBayar: "Lunas",
     };
   },
   components: {
@@ -224,12 +218,7 @@ export default {
             },
           });
           alert("Update Berhasil");
-          this.id = "";
-          this.name = "";
-          this.telNo = "";
-          this.lapangan = null;
-          this.waktu = null;
-          this.tanggal = null;
+          this.clearForm();
         }
       }
     },
@@ -265,27 +254,14 @@ export default {
       });
       alert("sukses bayar");
     },
-
-    Test(fasilitas) {
-      // if (this.id == id && this.judul == judul && this.judul_second == judul_second) {
-      //   console.log("masukan data lain");
-      // } else {
-      //   console.log("data masuk");
-      // }
-      console.log(fasilitas);
-      let i;
-      let flag = 0;
-      for (i = 0; i < fasilitas.length; i++) {
-        if (this.id == fasilitas[i].id && this.judul == fasilitas[i].judul && this.judul_second == fasilitas[i].judul_second) {
-          flag = flag + 1;
-        }
-      }
-      if (flag > 0) {
-        console.log("masukan data lain");
-      } else {
-        console.log("data masuk");
-      }
-    },
+  },
+  clearForm() {
+    this.id = "";
+    this.name = "";
+    this.telNo = "";
+    this.lapangan = null;
+    this.waktu = null;
+    this.tanggal = null;
   },
 };
 </script>
